@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVTV - Premium IPTV Service | 20,000+ Channels</title>
+    <meta name="description" content="Premium IPTV service with 20,000+ live channels, 50,000 movies, and 8,000 TV shows. Start your 36-hour trial for just $1.">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4f46e5;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #4f46e5;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="white" opacity="0.1"/><circle cx="10" cy="90" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #f59e0b;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.6);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1f2937;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: linear-gradient(145deg, #f8fafc, #e2e8f0);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #4f46e5;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .service-card p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pricing-card.featured {
+            border: 3px solid #4f46e5;
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #4f46e5;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #4f46e5;
+            margin: 1rem 0;
+        }
+
+        .price-subtitle {
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        /* EDITABLE: Payment button styling - customize as needed */
+        .payment-button {
+            width: 100%;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .payment-button:hover {
+            background: #3730a3;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .feature-icon {
+            background: linear-gradient(145deg, #4f46e5, #7c3aed);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            color: white;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #f59e0b;
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">CVTV</a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Premium IPTV Experience</h1>
+                <p>Access 20,000+ live channels, 50,000 movies, and 8,000 TV shows with crystal-clear quality</p>
+                <a href="#pricing" class="cta-button">Start Your $1 Trial</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Premium Services</h2>
+            <div class="services-grid">
+                <div class="service-card animate-fadeInUp">
+                    <div class="service-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <h3>20,000+ Live TV Channels</h3>
+                    <p>Access premium channels from around the world including sports, news, entertainment, and international content in HD quality.</p>
+                </div>
+                <div class="service-card animate-fadeInUp">
+                    <div class="service-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3>50,000+ Movies</h3>
+                    <p>Massive movie library with latest releases, classics, and international films. Updated regularly with new content.</p>
+                </div>
+                <div class="service-card animate-fadeInUp">
+                    <div class="service-icon">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <h3>8,000+ TV Shows</h3>
+                    <p>Complete seasons of popular TV series, documentaries, and exclusive shows from various networks and streaming platforms.</p>
+                </div>
+                <div class="service-card animate-fadeInUp">
+                    <div class="service-icon">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <h3>Sports Packages</h3>
+                    <p>Live sports coverage including NFL, NBA, MLB, FIFA, UFC, and international sports events in full HD.</p>
+                </div>
+                <div class="service-card animate-fadeInUp">
+                    <div class="service-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Video on Demand</h3>
+                    <p>Watch what you want, when you want with our extensive VOD library. Pause, rewind, and resume anytime.</p>
+                </div>
+                <div class="service-card animate-fadeInUp">
+                    <div class="service-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Pay-Per-View Events</h3>
+                    <p>Access exclusive PPV events including boxing matches, MMA fights, and special entertainment events.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Choose Your Plan</h2>
+            <div class="pricing-grid">
+                <!-- EDITABLE: Trial Plan -->
+                <div class="pricing-card">
+                    <h3>36-Hour Trial</h3>
+                    <div class="price">$1</div>
+                    <p class="price-subtitle">Test our service</p>
+                    <ul class="pricing-features">
+                        <li>Full access to all channels</li>
+                        <li>HD/4K streaming quality</li>
+                        <li>Mobile and TV support</li>
+                        <li>24/7 customer support</li>
+                    </ul>
+                    <!-- EDITABLE: Payment button and link -->
+                    <button class="payment-button" onclick="handlePayment('trial')">Start Trial Now</button>
+                </div>
+
+                <!-- EDITABLE: Single Device Plan -->
+                <div class="pricing-card">
+                    <h3>Single Device</h3>
+                    <div class="price">$15<span style="font-size: 1rem;">/month</span></div>
+                    <p class="price-subtitle">Perfect for individuals</p>
+                    <ul class="pricing-features">
+                        <li>1 concurrent connection</li>
+                        <li>All channels & content</li>
+                        <li>HD/4K streaming</li>
+                        <li>EPG & catch-up TV</li>
+                        <li>24/7 support</li>
+                    </ul>
+                    <!-- EDITABLE: Payment button and link -->
+                    <button class="payment-button" onclick="handlePayment('single')">Subscribe Now</button>
+                </div>
+
+                <!-- EDITABLE: Multi Device Plan -->
+                <div class="pricing-card featured">
+                    <h3>Multi Device</h3>
+                    <div class="price">$25<span style="font-size: 1rem;">/month</span></div>
+                    <p class="price-subtitle">Best for families</p>
+                    <ul class="pricing-features">
+                        <li>2 concurrent connections</li>
+                        <li>All channels & content</li>
+                        <li>HD/4K streaming</li>
+                        <li>EPG & catch-up TV</li>
+                        <li>Priority support</li>
+                        <li>Free setup assistance</li>
+                    </ul>
+                    <!-- EDITABLE: Payment button and link -->
+                    <button class="payment-button" onclick="handlePayment('multi')">Subscribe Now</button>
+                </div>
+            </div>
+
+            <!-- Referral Program -->
+            <div style="text-align: center; margin-top: 4rem; padding: 2rem; background: white; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                <h3 style="color: #4f46e5; margin-bottom: 1rem;">Referral Program</h3>
+                <p style="font-size: 1.2rem; color: #6b7280;">Refer 3 friends and get <strong style="color: #4f46e5;">1 month FREE!</strong></p>
+                <p style="margin-top: 1rem; color: #9ca3af;">Share the love and save money. It's a win-win!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose CVTV?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div>
+                        <h3>Backup Servers</h3>
+                        <p>Multiple server locations ensure 99.9% uptime and seamless streaming experience.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <div>
+                        <h3>No Buffering</h3>
+                        <p>Advanced streaming technology eliminates buffering for smooth, uninterrupted viewing.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div>
+                        <h3>Routine Backups</h3>
+                        <p>Daily backups ensure your service continuity and data protection at all times.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div>
+                        <h3>24/7 Support</h3>
+                        <p>Expert customer support available around the clock to assist with any questions or issues.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div>
+                        <h3>Multi-Platform</h3>
+                        <p>Works on all devices - Smart TV, Android, iOS, Windows, Mac, and streaming boxes.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <h3>Instant Activation</h3>
+                        <p>Get started immediately after payment with automatic account setup and instant access.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Get in Touch</h2>
+            <div class="contact-info">
+                <!-- EDITABLE: Contact Information -->
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email Support</h3>
+                    <p>support@cvtv.com</p>
+                    <p>Response within 1 hour</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-comments"></i>
+                    <h3>Live Chat</h3>
+                    <p>Available 24/7</p>
+                    <p>Instant assistance</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-telegram"></i>
+                    <h3>Telegram</h3>
+                    <p>@cvtv_support</p>
+                    <p>Quick support channel</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>WhatsApp</h3>
+                    <p>+1 (555) 123-4567</p>
+                    <p>Direct messaging</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 CVTV. All rights reserved. | Premium IPTV Service</p>
+        </div>
+    </footer>
+
+    <script>
+        // EDITABLE: Payment handling function
+        function handlePayment(planType) {
+            // CUSTOMIZE: Add your payment gateway integration here
+            // Examples: Stripe, PayPal, or custom payment processor
+            
+            switch(planType) {
+                case 'trial':
+                    // EDITABLE: Replace with your trial payment link
+                    window.open('https://your-payment-gateway.com/trial', '_blank');
+                    break;
+                case 'single':
+                    // EDITABLE: Replace with your single device payment link
+                    window.open('https://your-payment-gateway.com/single-device', '_blank');
+                    break;
+                case 'multi':
+                    // EDITABLE: Replace with your multi device payment link
+                    window.open('https://your-payment-gateway.com/multi-device', '_blank');
+                    break;
+                default:
+                    alert('Please select a valid plan');
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all service cards for animation
+        document.querySelectorAll('.service-card, .pricing-card, .feature-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
